@@ -130,7 +130,7 @@ Services fail if permissions are wrong
 
 ⚠️ Permission errors are VERY common in real DevOps jobs.
 
-🔥 LEVEL 2 — Users, Groups & Sudo
+## 🔥 LEVEL 2 — Users, Groups & Sudo
 Check your user
 whoami
 See detailed user info
