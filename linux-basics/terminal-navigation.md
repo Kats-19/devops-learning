@@ -52,10 +52,11 @@ ls -R
 devops_lab/
 ├── app.py
 ├── logs/
-│   └── server.log
+  └── server.log
 ├── configs/
-│   └── app.conf
+  └── app.conf
 └── scripts/
+
 This is how servers are organized
 
 ## 📖Step 4 - Reading and Writing Files
@@ -81,3 +82,4 @@ You check logs
 You debug
 
 ---
+
