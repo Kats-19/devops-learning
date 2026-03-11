@@ -1,0 +1,173 @@
+Automation is a core DevOps skill because many operational tasks need to run automatically.
+
+#Step 1 — Pipes (|)
+
+A pipe sends the output of one command to another command.
+
+Example:
+
+ps aux | grep nginx
+
+Meaning:
+
+ps aux       → show all running processes
+|            → send the output to another command
+grep nginx   → filter only lines containing "nginx"
+
+This command is extremely common when debugging servers.
+
+Example:
+
+ps aux | grep sleep
+
+This shows processes related to sleep.
+
+#Step 2 — Output Redirection
+
+Linux allows you to redirect command output into files.
+
+Overwrite a File (>)
+
+The > operator creates or overwrites a file.
+
+Example:
+
+echo "hello world" > test.txt
+
+Check the file:
+
+cat test.txt
+
+Output:
+
+hello world
+Append to a File (>>)
+
+The >> operator adds new content to the end of a file.
+
+Example:
+
+echo "another line" >> test.txt
+
+Check again:
+
+cat test.txt
+
+Output:
+
+hello world
+another line
+
+#Step 3 — Bash Variables
+
+Bash can store values in variables.
+
+Example:
+
+name="Keni"
+echo $name
+
+Output:
+
+Keni
+
+Another example:
+
+num=5
+echo $num
+
+Variables are widely used in automation scripts.
+
+#Step 4 — Your First Bash Script
+
+Create a script file:
+
+nano hello.sh
+
+Paste the following code:
+
+#!/bin/bash
+
+echo "Hello DevOps"
+date
+whoami
+
+Save the file:
+
+CTRL + O
+Enter
+CTRL + X
+Make the Script Executable
+chmod +x hello.sh
+Run the Script
+./hello.sh
+
+Example output:
+
+Hello DevOps
+Mon Mar 11 12:00:00 UTC 2026
+keni
+
+You just created your first automation script.
+
+What Just Happened
+
+Your script automatically ran:
+
+echo
+
+date
+
+whoami
+
+This is the foundation of:
+
+deployment scripts
+
+CI/CD pipelines
+
+monitoring scripts
+
+backup automation
+
+system maintenance tasks
+
+#Step 5 — Cron Jobs (Automation Scheduler)
+
+Cron allows Linux to run commands automatically at scheduled times.
+
+Open the cron configuration:
+
+crontab -e
+
+Add the following line:
+
+* * * * * echo "cron working" >> /tmp/cron_test
+Understanding Cron Syntax
+* * * * *
+│ │ │ │ │
+│ │ │ │ └── Day of week
+│ │ │ └──── Month
+│ │ └────── Day of month
+│ └──────── Hour
+└────────── Minute
+
+Example meaning:
+
+* * * * *
+
+This runs every minute.
+
+Check If Cron Worked
+
+After 1–2 minutes run:
+
+cat /tmp/cron_test
+
+You should see multiple lines like:
+
+cron working
+cron working
+cron working
+
+This confirms that the scheduled job is running.
